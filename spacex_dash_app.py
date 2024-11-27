@@ -61,6 +61,7 @@ app.layout = html.Div(children=[html.H1('SpaceX Launch Records Dashboard',
     Output(component_id='success-pie-chart', component_property='figure'),
     Input(component_id='site-dropdown', component_property='value'))
 
+# Should have created a database reference in the function for better optimization. Currently, the Data filtering process is referencing a global variable "space_df". 
 def get_pie_chart(entered_site):
     if entered_site == 'ALL':
         all_site_data = spacex_df.groupby('Launch Site')['class'].sum().reset_index()
